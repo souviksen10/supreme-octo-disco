@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+          <h3 class="mb-0">
+            <i class="bi bi-plus-circle me-2"></i>
+            Offer a Food Donation
+          </h3>
+        </div>
+        <div class="card-body">
+          <form #f="ngForm" (ngSubmit)="submit(f)" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="donorName" class="form-label">Donor Name *</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="donorName"
+                  name="donorName" 
+                  [(ngModel)]="model.donorName" 
+                  required 
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="contact" class="form-label">Contact Information *</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="contact"
+                  name="contact" 
+                  [(ngModel)]="model.contact" 
+                  required 
+                  placeholder="Phone or email"
+                />
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-8 mb-3">
+                <label for="foodType" class="form-label">Food Type *</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="foodType"
+                  name="foodType" 
+                  [(ngModel)]="model.foodType" 
+                  required 
+                  placeholder="e.g., Cooked meals, Fresh vegetables, Bread"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="expiryDate" class="form-label">Expiry Date *</label>
+                <input 
+                  type="date" 
+                  class="form-control" 
+                  id="expiryDate"
+                  name="expiryDate" 
+                  [(ngModel)]="model.expiryDate" 
+                  required 
+                />
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="quantity" class="form-label">Quantity *</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  id="quantity"
+                  name="quantity" 
+                  [(ngModel)]="model.quantity" 
+                  min="1" 
+                  required 
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="unit" class="form-label">Unit *</label>
+                <select class="form-select" id="unit" name="unit" [(ngModel)]="model.unit" required>
+                  <option *ngFor="let u of units" [value]="u">{{ u }}</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="location" class="form-label">Pickup Location *</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="location"
+                name="location" 
+                [(ngModel)]="model.location" 
+                required 
+                placeholder="Full address for pickup"
+              />
+            </div>
+            
+            <div class="mb-4">
+              <label for="notes" class="form-label">Additional Notes *</label>
+              <textarea 
+                class="form-control" 
+                id="notes"
+                name="notes" 
+                [(ngModel)]="model.notes" 
+                rows="3"
+                placeholder="Any special instructions or additional information"
+              ></textarea>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-outline-secondary me-md-2" (click)="cancel()">
+                <i class="bi bi-x-circle me-2"></i>
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-dark" [disabled]="!f.valid || isSubmitting">
+                <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </span>
+                <i *ngIf="!isSubmitting" class="bi bi-check-circle me-2"></i>
+                {{ isSubmitting ? 'Submitting...' : 'Submit Donation' }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

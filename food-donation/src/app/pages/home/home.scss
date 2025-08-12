@@ -1,0 +1,207 @@
+// Bootstrap handles the styling, custom overrides can go here
+
+.hero-banner {
+  height: 100vh;
+  min-height: 600px;
+  
+  // Remove background since it's now global, just add overlay
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+// Floating food icons background - make them more visible
+.food-icons-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.food-icon {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 6s ease-in-out infinite;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+  &:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+  &:nth-child(2) { top: 60%; left: 15%; animation-delay: 1s; }
+  &:nth-child(3) { top: 30%; left: 80%; animation-delay: 2s; }
+  &:nth-child(4) { top: 70%; left: 75%; animation-delay: 3s; }
+  &:nth-child(5) { top: 40%; left: 50%; animation-delay: 4s; }
+  &:nth-child(6) { top: 80%; left: 30%; animation-delay: 5s; }
+  &:nth-child(7) { top: 10%; left: 60%; animation-delay: 0.5s; }
+  &:nth-child(8) { top: 50%; left: 90%; animation-delay: 1.5s; }
+  &:nth-child(9) { top: 15%; left: 35%; animation-delay: 2.5s; }
+  &:nth-child(10) { top: 65%; left: 5%; animation-delay: 3.5s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 3;
+}
+
+.hero-content h1 {
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #ffffff !important;
+}
+
+.hero-content .lead {
+  font-weight: 300;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: #f8f9fa !important;
+}
+
+// Add some animation to make it more engaging
+.hero-content {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Quotes Section Styling
+.quotes-section {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.quote-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-in-out;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  
+  &::before,
+  &::after {
+    content: '"';
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: Georgia, serif;
+  }
+}
+
+.quote-author {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 80vh;
+    min-height: 500px;
+  }
+  
+  .hero-content {
+    padding: 1.5rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content .lead {
+    font-size: 1.1rem;
+  }
+  
+  .food-icon {
+    font-size: 1.5rem;
+  }
+  
+  .quote-text {
+    font-size: 1.2rem;
+  }
+  
+  .quote-author {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-banner {
+    height: 70vh;
+    min-height: 450px;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .food-icon {
+    font-size: 1rem;
+  }
+  
+  .quote-text {
+    font-size: 1.1rem;
+  }
+  
+  .quote-author {
+    font-size: 0.9rem;
+  }
+}

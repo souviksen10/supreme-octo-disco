@@ -1,0 +1,122 @@
+// Bootstrap handles the styling, custom overrides can go here
+
+// Enhance card visibility and readability
+.container {
+  .card {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+    }
+  }
+  
+  .card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(248, 249, 250, 0.95) !important;
+  }
+}
+
+// Add staggered animation for cards
+.row .col-lg-4:nth-child(1) .card { animation: slideInUp 0.6s ease-out 0.1s both; }
+.row .col-lg-4:nth-child(2) .card { animation: slideInUp 0.6s ease-out 0.2s both; }
+.row .col-lg-4:nth-child(3) .card { animation: slideInUp 0.6s ease-out 0.3s both; }
+.row .col-lg-4:nth-child(4) .card { animation: slideInUp 0.6s ease-out 0.4s both; }
+.row .col-lg-4:nth-child(5) .card { animation: slideInUp 0.6s ease-out 0.5s both; }
+.row .col-lg-4:nth-child(6) .card { animation: slideInUp 0.6s ease-out 0.6s both; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Custom pagination styling to match gray theme
+.pagination {
+  .page-link {
+    color: #6c757d;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 0.75rem;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: #495057;
+      background-color: #e9ecef;
+      border-color: #adb5bd;
+      text-decoration: none;
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+      z-index: 3;
+    }
+  }
+  
+  .page-item {
+    &.active .page-link {
+      color: #fff;
+      background-color: #6c757d;
+      border-color: #6c757d;
+      
+      &:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+    }
+    
+    &.disabled .page-link {
+      color: #adb5bd;
+      background-color: #fff;
+      border-color: #dee2e6;
+      cursor: not-allowed;
+      
+      &:hover {
+        color: #adb5bd;
+        background-color: #fff;
+        border-color: #dee2e6;
+      }
+    }
+  }
+  
+  // Style ellipsis
+  .page-item.disabled span.page-link {
+    color: #6c757d;
+    background-color: transparent;
+    border: 1px solid transparent;
+    
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
+
+// Custom search box styling to match gray theme
+.input-group {
+  .form-control {
+    &:focus {
+      border-color: #6c757d;
+      box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+    }
+  }
+  
+  .input-group-text {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    color: #6c757d;
+  }
+  
+  .btn-outline-secondary {
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+    }
+  }
+} 

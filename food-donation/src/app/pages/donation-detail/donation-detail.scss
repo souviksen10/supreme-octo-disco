@@ -1,0 +1,63 @@
+// Bootstrap handles the styling, custom overrides can go here
+
+.badge-lg {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+}
+
+// Enhance card visibility and readability
+.container {
+  .card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .breadcrumb {
+    background-color: rgba(248, 249, 250, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .alert {
+    background-color: rgba(248, 249, 250, 0.95) !important;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Add animation
+.card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.breadcrumb {
+  animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

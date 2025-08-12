@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  // Global background with food donation image
+  background: 
+    // Dark overlay for readability
+    linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    // Primary background image
+    url('https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
+    // Fallback images
+    url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
+    url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'),
+    // Final gradient fallback
+    linear-gradient(135deg, 
+      rgba(255, 87, 34, 0.9) 0%,
+      rgba(76, 175, 80, 0.9) 25%,
+      rgba(255, 193, 7, 0.9) 50%,
+      rgba(244, 67, 54, 0.9) 75%,
+      rgba(156, 39, 176, 0.9) 100%
+    );
+    
+  background-size: cover, cover, cover, cover, cover;
+  background-position: center, center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+// Make cards and content containers semi-transparent for better visibility
+.card {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+.navbar {
+  background-color: rgba(52, 58, 64, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+// Add subtle shadow to content for better readability
+.container {
+  position: relative;
+  z-index: 1;
+}

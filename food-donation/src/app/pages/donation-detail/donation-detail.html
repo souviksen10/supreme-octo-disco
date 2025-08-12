@@ -1,0 +1,163 @@
+<div class="container">
+  <!-- Loading indicator -->
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-3 text-muted">Loading donation details...</p>
+  </div>
+
+  <!-- Donation details -->
+  <div *ngIf="!isLoading && donation as d">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a routerLink="/donations" class="text-decoration-none">
+              <i class="bi bi-arrow-left me-2"></i>
+              All Donations
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{ d.foodType }}</li>
+        </ol>
+      </nav>
+      
+      <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">
+              <i class="bi bi-box-seam me-2"></i>
+              {{ d.foodType }}
+            </h3>
+            <span class="badge badge-lg" [ngClass]="{
+              'bg-success': d.status === 'available',
+              'bg-warning text-dark': d.status === 'reserved',
+              'bg-secondary': d.status === 'collected'
+            }">
+              {{ d.status | titlecase }}
+            </span>
+          </div>
+        </div>
+        
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="text-secondary mb-3">
+                <i class="bi bi-info-circle me-2"></i>
+                Donation Details
+              </h5>
+              <div class="mb-3">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-box-seam me-3 text-secondary"></i>
+                  <div>
+                    <strong>Quantity:</strong> {{ d.quantity }} {{ d.unit }}
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-calendar-event me-3 text-muted"></i>
+                  <div>
+                    <strong>Expiry Date:</strong> {{ d.expiryDate }}
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-clock me-3 text-muted"></i>
+                  <div>
+                    <strong>Created:</strong> {{ d.createdAt | date:'medium' }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <h5 class="text-success mb-3">
+                <i class="bi bi-person-circle me-2"></i>
+                Contact Information
+              </h5>
+              <div class="mb-3">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-person me-3 text-success"></i>
+                  <div>
+                    <strong>Donor:</strong> {{ d.donorName }}
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-telephone me-3 text-secondary"></i>
+                  <div>
+                    <strong>Contact:</strong> {{ d.contact }}
+                  </div>
+                </div>
+                <div class="d-flex align-items-start">
+                  <i class="bi bi-geo-alt me-3 text-danger"></i>
+                  <div>
+                    <strong>Pickup Location:</strong><br>
+                    {{ d.location }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div *ngIf="d.notes" class="mb-4">
+            <h5 class="text-muted mb-3">
+              <i class="bi bi-chat-dots me-2"></i>
+              Additional Notes
+            </h5>
+            <div class="alert alert-light border">
+              {{ d.notes }}
+            </div>
+          </div>
+          
+          <hr>
+          
+          <div class="d-flex flex-wrap gap-2 justify-content-between">
+            <div class="d-flex gap-2">
+              <a [routerLink]="['/donations', d.id, 'edit']" class="btn btn-outline-dark">
+                <i class="bi bi-pencil me-2"></i>
+                Edit Donation
+              </a>
+            </div>
+            
+            <div class="btn-group" role="group" aria-label="Status actions">
+              <button 
+                type="button" 
+                class="btn btn-outline-success" 
+                [class.active]="d.status === 'available'"
+                (click)="setStatus('available')"
+              >
+                <i class="bi bi-check-circle me-1"></i>
+                Available
+              </button>
+              <button 
+                type="button" 
+                class="btn btn-outline-warning" 
+                [class.active]="d.status === 'reserved'"
+                (click)="setStatus('reserved')"
+              >
+                <i class="bi bi-bookmark me-1"></i>
+                Reserved
+              </button>
+              <button 
+                type="button" 
+                class="btn btn-outline-secondary" 
+                [class.active]="d.status === 'collected'"
+                (click)="setStatus('collected')"
+              >
+                <i class="bi bi-check-square me-1"></i>
+                Collected
+              </button>
+            </div>
+            
+            <div class="d-flex gap-2">
+              <button class="btn btn-danger" (click)="delete()">
+                <i class="bi bi-trash me-2"></i>
+                Delete Donation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div> 

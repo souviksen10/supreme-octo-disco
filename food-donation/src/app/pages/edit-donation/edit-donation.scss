@@ -1,0 +1,31 @@
+// Consistent styling with other forms in the app
+
+.alert.alert-info {
+  border-left: 4px solid #0dcaf0;
+  background-color: rgba(13, 202, 240, 0.1);
+  border-color: rgba(13, 202, 240, 0.2);
+}
+
+// Form validation styling
+.form-control:invalid {
+  border-color: #dc3545;
+}
+
+.form-control:valid {
+  border-color: #198754;
+}
+
+// Loading spinner styling
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+// Button hover effects
+.btn {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
+} 

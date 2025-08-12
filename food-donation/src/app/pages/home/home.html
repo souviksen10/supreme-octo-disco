@@ -1,0 +1,96 @@
+<div class="container-fluid p-0">
+  <!-- Hero Section with Background Image -->
+  <div class="hero-banner">
+    <!-- Food icons background -->
+    <div class="food-icons-bg">
+      <div class="food-icon">🍎</div>
+      <div class="food-icon">🥖</div>
+      <div class="food-icon">🥗</div>
+      <div class="food-icon">🍊</div>
+      <div class="food-icon">🥕</div>
+      <div class="food-icon">🍌</div>
+      <div class="food-icon">🥦</div>
+      <div class="food-icon">🍞</div>
+      <div class="food-icon">🥪</div>
+      <div class="food-icon">🍇</div>
+    </div>
+    
+    <div class="hero-overlay">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center text-white">
+            <div class="hero-content py-5">
+              <h1 class="display-3 fw-bold mb-4">
+                <i class="bi bi-heart-fill text-danger me-3"></i>
+                Food Donation Platform
+              </h1>
+              <p class="lead mb-4 fs-4">
+                Connect donors with organizations to reduce food waste and help those in need.
+              </p>
+              <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a routerLink="/donate" class="btn btn-dark btn-lg px-4 py-3">
+                  <i class="bi bi-plus-circle me-2"></i>
+                  Offer a Donation
+                </a>
+                <a routerLink="/donations" class="btn btn-outline-light btn-lg px-4 py-3">
+                  <i class="bi bi-search me-2"></i>
+                  Browse All Donations
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4 text-center mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-people-fill text-secondary fs-1 mb-3"></i>
+          <h5 class="card-title">Connect Communities</h5>
+          <p class="card-text">Bridge the gap between food donors and those who need it most.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-center mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-recycle text-success fs-1 mb-3"></i>
+          <h5 class="card-title">Reduce Waste</h5>
+          <p class="card-text">Help reduce food waste by giving surplus food a second chance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-center mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <i class="bi bi-clock-fill text-muted fs-1 mb-3"></i>
+          <h5 class="card-title">Real-time Tracking</h5>
+          <p class="card-text">Track donation status from available to collected in real-time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Inspirational Quotes Section -->
+<div class="quotes-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <div class="quote-container" [class.visible]="isQuoteVisible">
+          <blockquote class="quote-text mb-3">
+            {{ currentQuote.text }}
+          </blockquote>
+          <cite class="quote-author">
+            — {{ currentQuote.author }}
+          </cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
